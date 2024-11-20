@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 #include <stdbool.h>
 #include <time.h>
 #include <errno.h>
+#include <string.h>
 
 typedef struct {
     int *buffer;
@@ -18,6 +20,11 @@ typedef struct {
     pthread_cond_t productores_terminaron;
     FILE *log;
 } ColaCircularMonitor;
+
+typedef struct {
+    ColaCircularMonitor *cola;
+    int tiempo_espera;
+} ConsumidorArgs;
 
 void redimensionarCola(ColaCircularMonitor *cola, int nueva_capacidad) {
     int *nuevo_buffer = (int *)malloc(nueva_capacidad * sizeof(int));
@@ -128,4 +135,75 @@ void destruirCola(ColaCircularMonitor *cola) {
     pthread_cond_destroy(&cola->no_lleno);
     pthread_cond_destroy(&cola->no_vacio);
     pthread_cond_destroy(&cola->productores_terminaron);
+}
+
+void *productor(void *arg) {
+    ColaCircularMonitor *cola = (ColaCircularMonitor *)arg;
+    for (int i = 0; i < 5; i++) {
+        producir(cola, i);
+        usleep(100000);
+    }
+    finalizarProductor(cola);
+    return NULL;
+}
+
+void *consumidor(void *arg) {
+    ConsumidorArgs *args = (ConsumidorArgs *)arg;
+    ColaCircularMonitor *cola = args->cola;
+    int tiempo_espera = args->tiempo_espera;
+
+    int item;
+    while ((item = consumir(cola, tiempo_espera)) != -1) {
+        usleep(150000);
+    }
+    fprintf(cola->log, "Consumidor finaliza por falta de items o tiempo de espera agotado.\n");
+    fflush(cola->log);
+    return NULL;
+}
+
+int main(int argc, char *argv[]) {
+    int num_productores = 0, num_consumidores = 0, tamano_inicial = 0, tiempo_espera = 0;
+    
+    // Procesamiento de los argumentos
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-p") == 0) {
+            num_productores = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "-c") == 0) {
+            num_consumidores = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "-s") == 0) {
+            tamano_inicial = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "-t") == 0) {
+            tiempo_espera = atoi(argv[++i]);
+        }
+    }
+
+    if (num_productores <= 0 || num_consumidores <= 0 || tamano_inicial <= 0 || tiempo_espera <= 0) {
+        fprintf(stderr, "Uso: %s -p <num_productores> -c <num_consumidores> -s <tamano_inicial> -t <tiempo_espera>\n", argv[0]);
+        return 1;
+    }
+
+    ColaCircularMonitor cola;
+    inicializarCola(&cola, tamano_inicial, num_productores);
+
+    pthread_t productores[num_productores], consumidores[num_consumidores];
+    ConsumidorArgs args = {&cola, tiempo_espera};
+
+    for (int i = 0; i < num_productores; i++) {
+        pthread_create(&productores[i], NULL, productor, (void *)&cola);
+    }
+
+    for (int i = 0; i < num_consumidores; i++) {
+        pthread_create(&consumidores[i], NULL, consumidor, (void *)&args);
+    }
+
+    for (int i = 0; i < num_productores; i++) {
+        pthread_join(productores[i], NULL);
+    }
+
+    for (int i = 0; i < num_consumidores; i++) {
+        pthread_join(consumidores[i], NULL);
+    }
+
+    destruirCola(&cola);
+    return 0;
 }
