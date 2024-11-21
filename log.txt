@@ -1,0 +1,123 @@
+Inicio de la ejecución
+Producido: 0, elementos en cola: 1
+Producido: 0, elementos en cola: 2
+Producido: 0, elementos en cola: 3
+Producido: 0, elementos en cola: 4
+Producido: 0, elementos en cola: 5
+Producido: 0, elementos en cola: 6
+Producido: 0, elementos en cola: 7
+Producido: 0, elementos en cola: 8
+Producido: 0, elementos en cola: 9
+Producido: 0, elementos en cola: 10
+Reduciendo capacidad de la cola a 25.
+Cambio de tamaño de la cola: nueva capacidad = 25
+Consumido: 0, elementos en cola: 9
+Consumido: 0, elementos en cola: 8
+Consumido: 0, elementos en cola: 7
+Reduciendo capacidad de la cola a 12.
+Cambio de tamaño de la cola: nueva capacidad = 12
+Consumido: 0, elementos en cola: 6
+Consumido: 0, elementos en cola: 5
+Producido: 1, elementos en cola: 6
+Producido: 1, elementos en cola: 7
+Producido: 1, elementos en cola: 8
+Producido: 1, elementos en cola: 9
+Producido: 1, elementos en cola: 10
+Producido: 1, elementos en cola: 11
+Producido: 1, elementos en cola: 12
+Cola llena. Duplicando capacidad a 24.
+Cambio de tamaño de la cola: nueva capacidad = 24
+Producido: 1, elementos en cola: 13
+Producido: 1, elementos en cola: 14
+Producido: 1, elementos en cola: 15
+Consumido: 0, elementos en cola: 14
+Consumido: 0, elementos en cola: 13
+Consumido: 0, elementos en cola: 12
+Consumido: 0, elementos en cola: 11
+Consumido: 0, elementos en cola: 10
+Producido: 2, elementos en cola: 11
+Producido: 2, elementos en cola: 12
+Producido: 2, elementos en cola: 13
+Producido: 2, elementos en cola: 14
+Producido: 2, elementos en cola: 15
+Producido: 2, elementos en cola: 16
+Producido: 2, elementos en cola: 17
+Producido: 2, elementos en cola: 18
+Producido: 2, elementos en cola: 19
+Producido: 2, elementos en cola: 20
+Producido: 3, elementos en cola: 21
+Producido: 3, elementos en cola: 22
+Producido: 3, elementos en cola: 23
+Producido: 3, elementos en cola: 24
+Cola llena. Duplicando capacidad a 48.
+Cambio de tamaño de la cola: nueva capacidad = 48
+Producido: 3, elementos en cola: 25
+Producido: 3, elementos en cola: 26
+Consumido: 1, elementos en cola: 25
+Consumido: 1, elementos en cola: 24
+Producido: 3, elementos en cola: 25
+Consumido: 1, elementos en cola: 24
+Consumido: 1, elementos en cola: 23
+Consumido: 1, elementos en cola: 22
+Producido: 3, elementos en cola: 23
+Producido: 3, elementos en cola: 24
+Producido: 3, elementos en cola: 25
+Producido: 4, elementos en cola: 26
+Producido: 4, elementos en cola: 27
+Producido: 4, elementos en cola: 28
+Producido: 4, elementos en cola: 29
+Producido: 4, elementos en cola: 30
+Producido: 4, elementos en cola: 31
+Producido: 4, elementos en cola: 32
+Producido: 4, elementos en cola: 33
+Producido: 4, elementos en cola: 34
+Producido: 4, elementos en cola: 35
+Consumido: 1, elementos en cola: 34
+Consumido: 1, elementos en cola: 33
+Consumido: 1, elementos en cola: 32
+Consumido: 1, elementos en cola: 31
+Consumido: 1, elementos en cola: 30
+Consumido: 2, elementos en cola: 29
+Consumido: 2, elementos en cola: 28
+Consumido: 2, elementos en cola: 27
+Consumido: 2, elementos en cola: 26
+Consumido: 2, elementos en cola: 25
+Consumido: 2, elementos en cola: 24
+Consumido: 2, elementos en cola: 23
+Consumido: 2, elementos en cola: 22
+Consumido: 2, elementos en cola: 21
+Consumido: 2, elementos en cola: 20
+Consumido: 3, elementos en cola: 19
+Consumido: 3, elementos en cola: 18
+Consumido: 3, elementos en cola: 17
+Consumido: 3, elementos en cola: 16
+Consumido: 3, elementos en cola: 15
+Consumido: 3, elementos en cola: 14
+Consumido: 3, elementos en cola: 13
+Reduciendo capacidad de la cola a 24.
+Cambio de tamaño de la cola: nueva capacidad = 24
+Consumido: 3, elementos en cola: 12
+Consumido: 3, elementos en cola: 11
+Consumido: 3, elementos en cola: 10
+Consumido: 4, elementos en cola: 9
+Consumido: 4, elementos en cola: 8
+Consumido: 4, elementos en cola: 7
+Reduciendo capacidad de la cola a 12.
+Cambio de tamaño de la cola: nueva capacidad = 12
+Consumido: 4, elementos en cola: 6
+Consumido: 4, elementos en cola: 5
+Consumido: 4, elementos en cola: 4
+Reduciendo capacidad de la cola a 6.
+Cambio de tamaño de la cola: nueva capacidad = 6
+Consumido: 4, elementos en cola: 3
+Consumido: 4, elementos en cola: 2
+Reduciendo capacidad de la cola a 3.
+Cambio de tamaño de la cola: nueva capacidad = 3
+Consumido: 4, elementos en cola: 1
+Consumido: 4, elementos en cola: 0
+Consumidor finaliza por falta de items o tiempo de espera agotado.
+Consumidor finaliza por falta de items o tiempo de espera agotado.
+Consumidor finaliza por falta de items o tiempo de espera agotado.
+Consumidor finaliza por falta de items o tiempo de espera agotado.
+Consumidor finaliza por falta de items o tiempo de espera agotado.
+Fin de la ejecución
